@@ -1,0 +1,5 @@
+	    <label for="input_{{application}}_{{object}}_{{attribut.name}}">{{attribut.display_name}} :</label>
+      <div class="btn-group">
+        <bs-dropdown data-menu-type="button" select-val="value.newvalue = selectedVal" preselected-item="value.newvalue" data-dropdown-data="attribut.values" on-change="myFunction()"></bs-dropdown>  &nbsp; Selected Value : {{value.newvalue}}
+      </div>
+      <p class="help-block">{{attribut.description}}</p>

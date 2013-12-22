@@ -1,0 +1,30 @@
+<h1>Action => {{action.type}} => {{action.title}}</h1>
+
+<div ng-if="action.type == 'report'">
+    <input type="text" ng-model="search" class="search-query" placeholder="Search">
+    <table class="table">
+        <thead>
+            <tr>
+                <th ng-repeat="column in columns">{{column}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="element in elements | filter:search ">
+                <td ng-repeat="(key,value) in element">{{value}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-if="action.type == 'transition'">
+	<form role="form">
+     <div class="form-group" ng-repeat="attribut in attributes">
+
+       <label for="exampleInputEmail1">{{attribut.display_name}} :</label>
+       <input type="email" class="form-control" id="input_{{application}}_{{object}}_{{attribut.name}}" placeholder="Enter {{attribut.display_name}}">
+       <p class="help-block">{{attribut.help}}</p>
+   </div>
+</form>
+</div>
+
+<br />
+<div style="border:solid 1px"></div>

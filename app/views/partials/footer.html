@@ -1,0 +1,12 @@
+<footer>
+    <div>
+        <div class="col-md-3 col-md-offset-1" ><h3 ng-click="showDetails = !showDetails">URL Parameters</h3>
+            <div ng-class="{ 'hidden': !showDetails }">
+        <ul>
+            <li  ng-repeat="(k_param,v_param) in $routeParams"><b>{{k_param}} :</b> {{v_param}}</li>
+        </ul>
+    </div>
+    </div>
+    
+</div>
+</footer>

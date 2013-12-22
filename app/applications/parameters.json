@@ -1,0 +1,25 @@
+{
+    "additional_links": [
+        {
+            "name": "Gestionnaire d'annonces",
+            "url": "http://dev.annonces.epe-drac.fr"
+        }
+    ],
+    "applications": [
+        {
+            "description": "Gestionnaire du planning de louange",
+            "display_name": "Planiculte",
+            "name": "planiculte",
+            "version": "1.0",
+            "error_level":"debug" 
+        },
+        {
+            "description": "Gestion des annonces de l'\u00e9glise",
+            "display_name": "Gestionnaire d'annonces",
+            "name": "annoncesmanager",
+            "version": "1.0"
+        }
+    ],
+    "engine_name": "WebDRAC",
+    "version": "1.0"
+}

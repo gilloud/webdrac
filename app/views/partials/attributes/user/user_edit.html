@@ -1,0 +1,20 @@
+<div class="wddropdown" ng-controller="AutoCompleter">
+    <label for="input_{{application}}_{{object}}_{{attribut.name}}">{{attribut.display_name}} :</label>
+    <div class="input-group">
+        <!--<input type="text"  placeholder="Enter {{attribut.display_name}}" ng-model="attribut.value" id="input_{{application}}_{{object}}_{{attribut.name}}">-->
+
+        <typeahead class="typeahead" items="users" term="attruser" search="searchUser(attruser)" select="selectUser(item)" placeholder="Enter {{attribut.display_name}}">
+            <div class="menu wddropdown" ng-cloak>
+               <h3 ng-show="hasUsers()">Albums</h3>
+
+               <ul>
+                 <li typeahead-item="album" ng-repeat="album in albums" class="results">
+                    <img ng-src="{{imageSource(album)}}"><div>{{album.name}} {{album.surname}}</div>
+                </li>
+            </ul>
+        </div>
+    </typeahead>
+</div>
+
+<p class="help-block">{{attribut.description}}</p>
+<p alt="{{attribut.value}}">{{attruser}}</p>

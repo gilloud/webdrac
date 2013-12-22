@@ -1,0 +1,8 @@
+<div ng-include src="'views/partials/menu.html'"></div>
+
+<div ng-if="thetemplate.length > 0" class="container">
+	<ng-include src="thetemplate">
+</div>
+<div ng-if="thetemplate.length == 0">
+	<h1>Bienvenue sur {{application.display_name}} !</h1>
+</div>

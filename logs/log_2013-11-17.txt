@@ -1,0 +1,39 @@
+2013-11-17 20:45:23 - DEBUG --> x = 5
+2013-11-17 20:45:23 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values (tag,2,"1");
+2013-11-17 20:45:23 - DEBUG --> Seems ko !
+2013-11-17 20:46:01 - DEBUG --> x = 5
+2013-11-17 20:46:01 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:46:01 - DEBUG --> Seems ko !
+2013-11-17 20:48:15 - DEBUG --> x = 5
+2013-11-17 20:48:15 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:48:15 - DEBUG --> Seems ok !
+2013-11-17 20:48:46 - DEBUG --> x = 5
+2013-11-17 20:48:46 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:48:46 - DEBUG --> Seems ok !
+2013-11-17 20:49:49 - DEBUG --> x = 5
+2013-11-17 20:49:49 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:49:49 - DEBUG --> Seems ok !
+2013-11-17 20:50:01 - DEBUG --> x = 5
+2013-11-17 20:50:01 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:50:01 - DEBUG --> Seems ok !
+2013-11-17 20:50:36 - DEBUG --> x = 5
+2013-11-17 20:50:36 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:50:36 - DEBUG --> Seems ok !
+2013-11-17 20:52:00 - DEBUG --> x = 5
+2013-11-17 20:52:00 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:52:00 - DEBUG --> Seems ok !
+2013-11-17 20:52:02 - DEBUG --> x = 5
+2013-11-17 20:52:02 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:52:02 - DEBUG --> Seems ok !
+2013-11-17 20:55:32 - DEBUG --> x = 5
+2013-11-17 20:55:32 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:55:32 - DEBUG --> Seems ok !
+2013-11-17 20:55:59 - DEBUG --> x = 5
+2013-11-17 20:55:59 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:55:59 - DEBUG --> Seems ok !
+2013-11-17 20:56:18 - DEBUG --> x = 5
+2013-11-17 20:56:18 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:56:18 - DEBUG --> Seems ok !
+2013-11-17 20:56:21 - DEBUG --> x = 5
+2013-11-17 20:56:21 - DEBUG --> Sql request : INSERT INTO data_planiculte_capacite (name,level,user) values ("tag","2",1);
+2013-11-17 20:56:21 - DEBUG --> Seems ok !

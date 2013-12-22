@@ -1,0 +1,415 @@
+{
+    "description": "Planiculte est un logiciel de gestion de planning de culte !",
+    "display_name": "Planiculte",
+    "groups": [
+        {
+            "description": "Gestionnaire de l'application",
+            "name": "manager"
+        },
+        {
+            "description": "Administrateur de l'application",
+            "name": "administrator"
+        },
+        {
+            "description": "Tous les utilisateurs",
+            "name": "all"
+        },
+        {
+            "description": "Tous les utilisateurs identifi\u00e9s",
+            "name": "all_logged"
+        }
+    ],
+    "intersection": {
+        "disponibilite": {
+            "attributes": {
+                "disponibilite": {
+                    "description": "Votre disponibilit\u00e9",
+                    "display_name": "Disponibilit\u00e9",
+                    "parameters": {},
+                    "type": "lov",
+                    "values": [
+                        "Disponible",
+                        "Non disponible",
+                        "Si n\u00e9cessaire"
+                    ]
+                }
+            },
+            "object1": "culte",
+            "object2": "users"
+        }
+    },
+    "menu": [
+        {
+            "menu": [
+                {
+                    "title": "Liste complete",
+                    "url": {
+                        "action": "list",
+                        "name": "all",
+                        "object": "culte"
+                    }
+                },
+                {
+                    "title": "Ajouter",
+                    "url": {
+                        "action": "transition",
+                        "name": "add",
+                        "object": "culte"
+                    }
+                }
+            ],
+            "title": "Moments de louange"
+        },
+        {
+            "menu": [
+                {
+                    "title": "Ajouter une capacit\u00e9",
+                    "url": {
+                        "action": "transition",
+                        "name": "add",
+                        "object": "capacite"
+                    }
+                },
+                {
+                    "title": "Liste des capacit\u00e9s",
+                    "url": {
+                        "action": "list",
+                        "name": "all",
+                        "object": "capacite"
+                    }
+                }
+            ],
+            "title": "Gestion"
+        },
+        {
+            "menu": [
+                {
+                    "title": "D\u00e9finir mes disponibilit\u00e9s",
+                    "url": {
+                        "action": "list",
+                        "name": "futur",
+                        "object": "culte"
+                    }
+                }
+            ],
+            "title": "Mes disponibilit\u00e9s"
+        }
+    ],
+    "name": "planiculte",
+    "objects": {
+        "capacite": {
+            "attributes": {
+                "level": {
+                    "description": "Niveau de gestion de l'instrument",
+                    "display_name": "Level",
+                    "parameters": {
+                        "max": 5,
+                        "min": 0
+                    },
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "Nom de la capacit\u00e9 (nom de l'instrument par exemple)",
+                    "display_name": "Capacit\u00e9",
+                    "parameters": {
+                        "length": 100
+                    },
+                    "type": "string"
+                },
+                "user": {
+                    "description": "Personne ayant la comp\u00e9tence",
+                    "display_name": "Personne",
+                    "parameters": {},
+                    "type": "user"
+                }
+            },
+            "description": "Instrument, Chant ou sonorisation",
+            "display_name": "Capacite",
+            "list": {
+                "all": {
+                    "groups": [
+                        "all"
+                    ],
+                    "parameters": {
+                        "columns": [
+                            "level",
+                            "name",
+                            "id",
+                            "_application",
+                            "_entity"
+                        ],
+                        "columns_details": [
+                            {
+                                "formatter": "jqgrid_level",
+                                "index": "level",
+                                "name": "level",
+                                "sorttype": "int"
+                            },
+                            {
+                                "index": "name",
+                                "name": "name"
+                            },
+                            {
+                                "formatter": "jqgrid_getLink",
+                                "index": "idf",
+                                "name": "Aller a la fiche"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "_application",
+                                "name": "_application"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "_entity",
+                                "name": "_entity"
+                            }
+                        ],
+                        "filters": {}
+                    },
+                    "title": "Toutes les capacit\u00e9s",
+                    "type": "report"
+                }
+            },
+            "name": "capacite",
+            "transition": {
+                "add": {
+                    "from": null,
+                    "groups": [
+                        "manager",
+                        "administrator",
+                        "all"
+                    ],
+                    "parameters": {
+                        "attributes": [
+                            "name",
+                            "level",
+                            "user"
+                        ]
+                    },
+                    "title": "Ajouter une capacit\u00e9",
+                    "to": "created"
+                }
+            }
+        },
+        "culte": {
+            "attributes": {
+                "commentaire": {
+                    "description": "Information suppl\u00e9mentaire pouvant \u00eatre ajout\u00e9e concernant l'\u00e9v\u00e8nement",
+                    "display_name": "Commentaire",
+                    "parameters": {
+                        "type": "simple"
+                    },
+                    "type": "textarea"
+                },
+                "date": {
+                    "description": "Date du culte",
+                    "display_name": "Date",
+                    "parameters": {
+                        "pikaday": {
+                            "firstDay": 1,
+                            "formatDisplay": "DD-MM-YYYY HH:mm",
+                            "formatModel": "YYYY-MM-DD HH:mm:ssZ",
+                            "showTime": true,
+                            "use24hour": false
+                        }
+                    },
+                    "type": "datetime"
+                }
+            },
+            "description": "Culte ou moment de louange",
+            "display_name": "Culte",
+            "list": {
+                "all": {
+                    "groups": [
+                        "all"
+                    ],
+                    "parameters": {
+                        "columns": [
+                            "date",
+                            "commentaire",
+                            "id",
+                            "_application",
+                            "_entity"
+                        ],
+                        "columns_details": [
+                            {
+                                "formatter": "jqgrid_getLink",
+                                "index": "date",
+                                "name": "date",
+                                "sorttype": "int"
+                            },
+                            {
+                                "index": "commentaire",
+                                "name": "commentaire"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "_application",
+                                "name": "_application"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "id",
+                                "name": "id"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "_entity",
+                                "name": "_entity"
+                            }
+                        ],
+                        "filters": {}
+                    },
+                    "title": "Tous les cultes",
+                    "type": "report"
+                },
+                "futur": {
+                    "groups": [
+                        "all"
+                    ],
+                    "parameters": {
+                        "columns": [
+                            {
+                                "parameters": {
+                                    "source": "db"
+                                },
+                                "title": "date"
+                            },
+                            {
+                                "parameters": {
+                                    "source": "db"
+                                },
+                                "title": "commentaire"
+                            },
+                            {
+                                "parameters": {
+                                    "intersection": {
+                                        "attributes": {
+                                            "disponibilite": {
+                                                "description": "Indiquez votre disponibilité pour ce jour.",
+                                                "display_name": "Disponibilit\u00e9",
+                                                "parameters": {},
+                                                "type": "lov",
+                                                "values": [
+                                                    {
+                                                        "id": 1,
+                                                        "name": "Disponible"
+                                                    },
+                                                    {
+                                                        "id": 2,
+                                                        "name": "Non disponible"
+                                                    },
+                                                    {
+                                                        "id": 3,
+                                                        "name": "Si n\u00e9cessaire"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "object1": "culte",
+                                        "object2": "users"
+                                    },
+                                    "source": "intersection"
+                                },
+                                "title": "S\u00e9lection"
+                            }
+                        ],
+                        "columns_details": [
+                            {
+                                "formatter": "jqgrid_getLink",
+                                "index": "date",
+                                "name": "date",
+                                "sorttype": "int"
+                            },
+                            {
+                                "index": "commentaire",
+                                "name": "commentaire"
+                            },
+                            {
+                                "formatter": "jqgrid_Selector",
+                                "index": "_selector",
+                                "name": "_selector"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "_application",
+                                "name": "_application"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "id",
+                                "name": "id"
+                            },
+                            {
+                                "hidden": true,
+                                "index": "_entity",
+                                "name": "_entity"
+                            }
+                        ],
+                        "filters": [
+                            {
+                                "attribute": "date",
+                                "operator": "upper",
+                                "value": "today"
+                            }
+                        ]
+                    },
+                    "title": "Cultes \u00e0 venir ",
+                    "type": "report"
+                }
+            },
+            "name": "culte",
+            "transition": {
+                "add": {
+                    "from": null,
+                    "groups": [
+                        "manager",
+                        "administrator",
+                        "all"
+                    ],
+                    "parameters": {
+                        "attributes": [
+                            "date",
+                            "commentaire"
+                        ]
+                    },
+                    "title": "Ajouter une date de louange",
+                    "to": "created"
+                }
+            }
+        },
+        "utilisateur": {
+            "attributes": {
+                "capacite": {
+                    "description": "Capacit\u00e9",
+                    "name": "Capacit\u00e9",
+                    "parameters": {
+                        "linked_object": "capacite"
+                    },
+                    "type": "link"
+                },
+                "surname": {
+                    "description": "Surnom de la personne",
+                    "name": "surname",
+                    "parameters": {
+                        "length": 100
+                    },
+                    "type": "string"
+                }
+            },
+            "description": "Utilisateur de l'application",
+            "display_name": "Utilisateur",
+            "name": "utilisateur",
+            "personal": true
+        }
+    },
+    "template": [
+        {
+            "HomeSpecificCtrl": {
+                "template": "home_specific.html"
+            }
+        }
+    ],
+    "version": "1.0"
+}

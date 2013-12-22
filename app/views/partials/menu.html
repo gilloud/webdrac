@@ -1,0 +1,46 @@
+<div  ng-controller="MenuCtrl">
+<nav class="navbar navbar-default" role="navigation" >
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span> 
+      <span class="icon-bar"></span>  
+      <span class="icon-bar"></span> 
+    </button>
+    <a class="navbar-brand" href="" ng-click="setRoute('/'+application.name)" >{{application_name}}</a>
+  </div>
+
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <!-- roots menu -->
+    <ul class="nav navbar-nav" ng-repeat="rootmenu in application.menu">
+      <!-- if link on root menu -->
+        <li  ng-if="!rootmenu.menu && canViewElement(rootmenu)"><a href="" ng-click="setRoute(application_name+'/'+rootmenu.url.object+'/'+rootmenu.url.action+'/'+rootmenu.url.name)">{{rootmenu.title}}</a></li>
+        <!-- if links on submenus -->
+        <li class="dropdown" ng-if="rootmenu.menu">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">{{rootmenu.title}} <b class="caret"></b></a>
+          <!-- submenus -->
+          <ul class="dropdown-menu">
+            <li ng-repeat="menu in rootmenu.menu"  ng-show="canViewElement(menu)"><a href="" ng-click="setRoute(application_name+'/'+menu.url.object+'/'+menu.url.action+'/'+menu.url.name)">{{menu.title}}</a></li>
+          </ul>
+        </li>
+
+    </ul>
+    
+<!-- Right  menubar -->
+    <ul class="nav navbar-nav navbar-right">
+
+      <li class="dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">Outils <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li ng-repeat="link in parameters.additional_links" ><a href="{{link.url}}">{{link.name}}</a></li>
+          <li><a href="" ng-click="setRoute('login')" ng-if="!isLoggedIn()">Se connecter</a></li>
+
+          <li><a href="" ng-click="setRoute('logout')" ng-if="isLoggedIn()">Se déconnecter</a></li>
+          <li><a href="" ng-click="unsetApplication();setRoute('/')">Applications {{parameters.engine_name}}</a></li>
+
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+</div>

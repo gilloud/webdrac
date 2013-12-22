@@ -1,0 +1,6 @@
+<label for="input_{{application}}_{{object}}_{{attribut.name}}">{{attribut.display_name}} :</label>
+<input type="number" integer min="{{attribut.parameters.min}}" max="{{attribut.parameters.max}}" class="form-control" ng-model="attribut.value" name="size" id="input_{{application}}_{{object}}_{{attribut.name}}" placeholder="Enter {{attribut.display_name}}">
+<p class="help-block">{{attribut.description}}</p>
+<span ng-show="form.size.$error.integer">This is not valid integer!</span>
+<span ng-show="form.size.$error.min || form.size.$error.max">
+	The value must be in range {{attribut.parameters.min}} to {{attribut.parameters.max}}!</span>

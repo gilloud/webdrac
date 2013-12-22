@@ -1,0 +1,13 @@
+<div class="container" style="background-color: #eee;">
+    <h2 class="form-signin-heading">
+        Applications {{parameters.engine_name}}
+    </h2><br /><br />
+    <div style="text-align:center;">
+        <div style="display:inline-block;margin:20px;" ng-repeat="application in parameters.applications">
+            <button type="button" class="btn btn-primary btn-lg" ng-click="setRoute(application.name);setApplication(application.name)" style="width:300px;">{{application.display_name}}<br />
+                <span style="font-size:10px;">{{application.description}}</span>
+            </button>
+        </div>
+    </div>
+    <br />
+</div>

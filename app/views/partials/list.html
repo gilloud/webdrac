@@ -1,0 +1,55 @@
+<div ng-include src="'views/partials/menu.html'"></div>
+
+<div  class="container">
+    <h2>{{list.title}}</h2>
+    <div  align="center">
+      <!--  <ng-jq-grid config="config" data="data"></ng-jq-grid>-->
+    </div>
+</div>
+
+<table border="1">
+    <tr>
+        <th ng-repeat="(column_k,column_v) in list.parameters.columns">{{column_v.title}}</th>
+    </tr>
+    <tr ng-repeat="(key, value) in data">
+        <td ng-repeat="(column_k,column_v) in list.parameters.columns">{{value[column_v.title]}}
+            <div ng-if="column_v.parameters.source == 'intersection'"> 
+                <div ng-repeat="attribut in column_v.parameters.intersection.attributes">
+                
+                <!-- If it's a string -->
+                <div ng-if="attribut.type == 'string'">
+                    <div ng-include src="'views/partials/attributes/string/string_edit.html'"></div>
+                </div>
+
+                <!-- If it's an integer -->
+                <div ng-if="attribut.type == 'integer'">
+                    <div ng-include src="'views/partials/attributes/integer/integer_edit.html'"></div>
+                </div>
+
+                <!-- If it's an user -->
+                <div ng-if="attribut.type == 'user'">
+                    <div ng-include src="'views/partials/attributes/user/user_edit.html'"></div>
+                </div>
+
+                <!-- If it's a datetime -->
+                <div ng-if="attribut.type == 'datetime'">
+                    <div ng-include src="'views/partials/attributes/datetime/datetime_edit.html'"></div>
+                </div>
+
+                <!-- If it's a textarea -->
+                <div ng-if="attribut.type == 'textarea'">
+                    <div ng-include src="'views/partials/attributes/textarea/textarea_edit.html'"></div>
+                </div>
+                
+                <!-- If it's a lov -->
+                <div ng-if="attribut.type == 'lov'">
+                    <div ng-include src="'views/partials/attributes/lov/lov_edit.html'"></div>
+                </div>
+
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div ng-include src="'views/partials/footer.html'"></div>

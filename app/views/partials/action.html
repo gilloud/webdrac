@@ -1,0 +1,65 @@
+<div ng-include src="'views/partials/menu.html'"></div>
+<div  class="container">
+<form name="form" class="css-form" novalidate>
+	<!--<div class="row">
+		<div class="col-md-1 col-md-offset-1"><button ng-click="back()"  type="button" class="btn btn-info">Back</button></div>
+		<div class="col-md-8" style="text-align:center">{{application.display_name}} {{params.action}} {{ObjectName}}</div>
+		<div class="col-md-1"><button ng-click="submit(attributes)"  type="button" class="btn btn-success">Next</button></div>
+	</div>-->
+	<ul class="pager">
+  <li class="previous"><a href="#" ng-click="back()"  >&larr; Back</a></li>
+  <li class="next"><a href="#" ng-click="submit(attributes)">Next &rarr;</a></li>
+</ul>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2" >
+			<div class="form-group" ng-repeat="attribut in attributes">
+
+
+				<!-- If it's a string -->
+				<div ng-if="attribut.type == 'string'">
+					<div ng-include src="'views/partials/attributes/string/string_edit.html'"></div>
+				</div>
+
+
+				<!-- If it's an integer -->
+				<div ng-if="attribut.type == 'integer'">
+					<div ng-include src="'views/partials/attributes/integer/integer_edit.html'"></div>
+				</div>
+
+				<!-- If it's an user -->
+				<div ng-if="attribut.type == 'user'">
+					<div ng-include src="'views/partials/attributes/user/user_edit.html'"></div>
+				</div>
+
+				<!-- If it's a datetime -->
+				<div ng-if="attribut.type == 'datetime'">
+					<div ng-include src="'views/partials/attributes/datetime/datetime_edit.html'"></div>
+				</div>
+
+				<!-- If it's a textarea -->
+				<div ng-if="attribut.type == 'textarea'">
+					<div ng-include src="'views/partials/attributes/textarea/textarea_edit.html'"></div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<!--<div class="row">
+		<div class="col-md-1 col-md-offset-1"><button ng-click="back()"  type="button" class="btn btn-info">Back</button></div>
+		<div class="col-md-8" style="text-align:center">&nbsp;</div>
+		<div class="col-md-1"><button ng-click="submit(attributes)"  type="button" class="btn btn-success">Next</button></div>
+	</div>-->
+		<ul class="pager">
+  <li class="previous"><a href="#" ng-click="back()"  >&larr; Back</a></li>
+  <li class="next"><a href="#" ng-click="submit(attributes)">Next &rarr;</a></li>
+</ul>
+</form>
+<hr />
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">#ID | {{application.display_name}}({{application.version}}) {{params.action}} {{ObjectName}} |</div>
+</div>
+</div>
+
+<div ng-include src="'views/partials/footer.html'"></div>

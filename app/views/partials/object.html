@@ -1,0 +1,8 @@
+<div ng-include src="'views/partials/menu.html'"></div>
+
+<h1>{{params.object}}</h1>
+<ul>
+    <li ng-repeat="(key,value) in attributes">{{key}} : {{value}}</li>
+</ul>
+<br />
+<div ng-include src="'views/partials/footer.html'"></div>

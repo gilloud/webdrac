@@ -1,0 +1,1 @@
+php test/api/mageekguy.atoum.phar -d api/lib/test

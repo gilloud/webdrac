@@ -1,0 +1,8 @@
+<label for="input_{{application.name}}_{{object}}_{{attribut.name}}">{{attribut.display_name}} :</label>
+<div ng-if="attribut.parameters.type == 'simple'">
+    <textarea class="form-control" rows="3" placeholder="Enter {{attribut.display_name}}" ng-model="attribut.value" id="input_{{application}}_{{object}}_{{attribut.name}}"></textarea>
+</div>
+<div ng-if="attribut.parameters.type == 'wysiwig'">
+    <div text-angular ng-model="html"></div>
+</div>
+<p class="help-block">{{attribut.description}}</p>

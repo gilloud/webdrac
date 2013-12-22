@@ -1,0 +1,117 @@
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.hero-unit {
+    margin: 5px auto 0 auto;
+    width: 95%;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+footer {
+    margin-top:20px;
+    border-top: 3px solid grey;
+}
+
+/*
+.wddropdown:hover:after {
+    background: red;
+    border-left: 1px solid #000;
+}
+.wddropdown ul {
+margin: 0;
+padding: 0;
+width: 200px;
+text-align: center;
+border: 1px solid #000;
+list-style-type: none;
+display: none;
+height: 100px;
+overflow: auto;
+overflow-x: hidden; 
+white-space: nowrap; 
+display: block; 
+position: absolute; 
+background: #fff;
+}
+.wddropdown ul li:hover {
+    background: #DEFDAE;
+}
+*/
+.wddropdown ul {
+    background-color: #FFF;
+    margin: 0;
+    /*margin-left: 125px;*/
+    padding: 0;
+    list-style: none;
+}
+
+
+.wddropdown .results {
+    width: 375px;
+    margin: auto;
+    text-align: left;
+    min-height: 20px;
+    padding: 5px;
+        background-color: rgb(230, 230, 230);
+
+}
+
+.wddropdown .results.active {
+    background-color: rgb(150,150,150);
+}
+
+.wddropdown .results.active .name {
+    color: white;
+}
+
+
+.wddropdown .results .name {
+    font-size: 20px;
+    line-height: 10px;
+}
+
+.wddropdown .results p {
+    margin-bottom: 5px;
+    margin-left: 74px;
+}
+
+.wddropdown .results .artist {
+    font-size: 16px;
+    line-height: 10px;
+    color: #999;
+    margin-left: 74px;
+}
+
+/* textAngular include */
+.ta-editor{
+    min-height: 300px;
+    height: auto;
+    overflow: auto;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+/* angular-datetimepicker */
+.jrg-datetimepicker-input {
+    width:100%;
+}
+/*
+.wddropdown .results img {
+    width: 64px;
+    height: 64px;
+    float: left;
+}*/
